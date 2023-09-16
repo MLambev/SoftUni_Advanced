@@ -1,0 +1,20 @@
+from collections import deque
+
+parentheses = deque(input())
+first_parentheses = deque()
+
+while parentheses:
+    current = parentheses.popleft()
+
+    if current in "([{":
+        first_parentheses.append(current)
+    elif not first_parentheses:
+        print("NO")
+        break
+    else:
+        if f"{first_parentheses.pop() + current}" not in "()[]{}":
+            print("NO")
+            break
+
+else:
+    print("YES")
