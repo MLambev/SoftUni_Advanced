@@ -1,0 +1,9 @@
+from collections import deque
+
+numbers = [n for n in input().split()]
+stack_of_numbers = deque(numbers)
+
+for number in range (len(numbers)):
+    number = numbers.pop()
+
+    print(f"{number}", end=" ")
