@@ -1,0 +1,22 @@
+from collections import deque
+
+quantity_of_food = int(input())
+
+orders = deque([int(order) for order in input().split()])
+
+biggest_order = max(orders)
+print(biggest_order)
+orders_complete = True
+
+for current_order in orders.copy():
+
+    if current_order <= quantity_of_food:
+        order = orders.popleft()
+        quantity_of_food -= current_order
+    else:
+        print(f"Orders left: {' '.join([str(order) for order in orders])}")
+        orders_complete = False
+        break
+
+if orders_complete:
+    print("Orders complete")
