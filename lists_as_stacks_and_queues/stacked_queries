@@ -1,0 +1,24 @@
+from collections import deque
+
+number_of_commands = int(input())
+
+our_stack = deque()
+
+for _ in range(number_of_commands):
+    command = input().split()
+
+    if command[0] == '1':
+        current_number = int(command[1])
+        our_stack.append(current_number)
+    elif command[0] == '2':
+        if our_stack:
+            our_stack.pop()
+    elif command[0] == '3':
+        if our_stack:
+            print(max(our_stack))
+    elif command[0] == '4':
+        if our_stack:
+            print(min(our_stack))
+
+our_stack.reverse()
+print(*our_stack, sep=', ')
